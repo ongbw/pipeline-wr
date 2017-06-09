@@ -1,0 +1,21 @@
+CFLAGS =  -std=c99 -m64 -g
+
+# sequential MKL libs
+LIBS_MKL = -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lm -lpthread 
+LIBS_PAPI = -I$(TACC_PAPI_INC) -L$(TACC_PAPI_LIB) -lpapi
+
+
+all: classical_nnwr.exe pipeline_nnwr.exe pipeline_dnwr.exe
+
+
+classical_nnwr.exe:
+	mpicc $(CFLAGS) classical_nnwr.c -o classical_nnwr.exe $(LIBS_MKL) $(LIBS_PAPI)
+
+pipeline_nnwr.exe:
+	mpicc $(CFLAGS) pipeline_nnwr.c -o pipeline_nnwr.exe $(LIBS_MKL) $(LIBS_PAPI)
+
+pipeline_dnwr.exe:
+	mpicc $(CFLAGS) pipeline_dnwr.c -o pipeline_dnwr.exe $(LIBS_MKL) $(LIBS_PAPI)
+
+clean:
+	rm -rf *.exe *.dat

@@ -1,0 +1,33 @@
+# LaTeX Files
+*.pdf
+*.aux
+*.log
+*.bbl
+*.bcf
+*.blg
+*.out
+*.nav
+*.snm
+*.toc
+
+# Emacs
+*~
+
+# C/C++
+*.o
+*.a
+*.so
+*.exe
+
+# Python
+*.py[cod]
+
+# datafiles
+*.dat
+
+
+.ipynb_checkpoints
+
+
+# matlab mat files
+*.mat
